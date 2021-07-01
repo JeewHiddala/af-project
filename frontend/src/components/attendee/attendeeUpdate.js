@@ -30,7 +30,7 @@ class updateAttendee extends Component {
 
     toDashboard(e, userId) {
         this.props.history.push({
-            pathname: '/attendee/pay/store',
+            pathname: '/attendee/dashboard',
             data: `${userId}`
         })
     }

@@ -45,33 +45,31 @@ class AttendeeDashboard extends Component {
           <h2>Attendee Dashboard</h2>
           <br /><br /><br /><br />
           <div className="row">
-          <div className="col-4">
-            <a href="/presenter/:id" >
-              <div className="card-sub" >
-                <img src={profile} className="card-img-top" alt="profile" />
-                <div className="card-body">
-                  <h3 className="card-text">Update Profile</h3>
-                  <p className="card-text">Update your user profile details from here</p>
+            <div className="col-4">
+              
+                <div className="card-sub" >
+                  <img src={profile} className="card-img-top" alt="profile" />
+                  <div className="card-body">
+                    <button type="button" className="btn btn-primary me-md-2" onClick={e => this.loadUpdateProfile(e, data)} >Update Profile</button>
+                    <p className="card-text">Update your user profile details from here</p>
+                  </div>
                 </div>
-              </div>
-            </a>
-          </div>
-          <div className="col-4">
-            <a href="/attendee/pay/store" >
-              <div className="card-sub" >
-                <img src={payment} className="card-img-top" alt="payment" />
-                <div className="card-body">
-                  <h3 className="card-text">Make Payment</h3>
-                  <p className="card-text">Pay for registering to the conference from here</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          </div>
-          {/* <button type="button" className="btn btn-primary me-md-2" onClick={e => this.loadUpdateProfile(e, data)} >Update Profile</button>
-                    
+           
+            </div>
+            <div className="col-4">
+              
+                <div className="card-sub" >
+                  <img src={payment} className="card-img-top" alt="payment" />
+                  <div className="card-body">
                     <button type="button" className="btn btn-primary me-md-2" onClick={e => this.loadAttendeePayment(e, data)} >Make Payment</button>
-                     */}
+                    <p className="card-text">Pay for registering to the conference from here</p>
+                  </div>
+                </div>
+             
+            </div>
+          </div>
+
+
           <br /><br /><br /><br />
         </div>
       )
