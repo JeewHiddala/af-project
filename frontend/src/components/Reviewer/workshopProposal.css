@@ -1,0 +1,12 @@
+.table-hover{
+  border: black;
+}
+
+.container{
+  border: black;
+}
+thead{
+  color: rgb(236, 231, 231);
+  background-color: rgb(115, 113, 116);
+}
+

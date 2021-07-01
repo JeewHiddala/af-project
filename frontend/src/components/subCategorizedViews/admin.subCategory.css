@@ -1,0 +1,15 @@
+.card-sub{
+    width:18rem;
+    align-items: center;
+    margin-top: 1.5rem;
+    padding: 2rem;
+}
+
+.topic{
+    padding: 30px;
+    font-family:'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace';
+}
+
+.topic hover{
+    color: blue;
+}

@@ -1,0 +1,11 @@
+.container{
+    border: rgb(19, 18, 18);
+  }
+.button{
+  width: 10px;
+  size: 50px;
+}
+
+.button .btn-warning{
+  size: 12px;
+}

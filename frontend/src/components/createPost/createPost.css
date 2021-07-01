@@ -1,0 +1,52 @@
+
+
+body {
+    background: linear-gradient(to bottom left, #ccccff 0%, #ffffff 100%);
+    color: #000000 ;
+    font-family: "Poppins",sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.625em;
+    position: relative;
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.row {
+    width: 100%;
+    padding:10px;
+    height: auto;
+}
+
+.row .column_25 {
+    width: 25%;  
+}
+.row .column_33{
+    width: 33%;  
+}
+.row .column_50 {
+    width: 50%;  
+}
+.margin-top-5
+{
+    margin-right: 25%
+}
+
+.push-left
+{
+    float: left;
+}
+
+.push-right
+{
+    float: right;
+}
+
+.clear-fix{
+    clear: both;
+}
