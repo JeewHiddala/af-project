@@ -76,7 +76,7 @@ class viewEditors extends Component {
                                 <th scope="col">NIC No</th>
                                 <th scope="col">Address</th>
                                 <th scope="col">Mobile Number</th>
-                                <th scope="col">Recruited Administrator Name</th>
+                                <th scope="col">Recruited Administrator/s Name</th>
                                 <th scope="col">Username</th>
                                 <th scope="col">Editor Salary</th>
                                 </tr>

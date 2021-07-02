@@ -15,7 +15,9 @@ const createEditor = async (req, res) => {       //create a editors to db.
 }
 
 const getAllEditorsDetails = async (req, res) => {       //get all editors details.
-    await Editor.find({}).populate('posts', 'title description submittedDate status approvedDate')
+    await Editor.find({})
+    .populate('posts', 'title description submittedDate status approvedDate')
+    .populate('admins','name')
         .then(data => {
             res.status(200).send({ data: data });
         })

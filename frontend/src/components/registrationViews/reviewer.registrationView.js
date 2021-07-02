@@ -205,7 +205,7 @@ class reviewerRegistration extends Component {
                         </div>
                     </div>
                     <div className="mb-3">
-                    <label htmlFor="admin" className="form-label">Administrator Name</label>
+                    <label htmlFor="admin" className="form-label">Recruited Administrator/s Name</label>
                     <Select
                         options={this.state.options}
                         onChange={this.onAdminSelect}

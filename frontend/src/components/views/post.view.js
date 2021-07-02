@@ -78,7 +78,7 @@ deletePost(e , postId) {
                   </td>
                   <td>{item.status}</td>
                   <td>{item.approvedDate}</td>
-                  <td>{item.remaks}</td>
+                  <td>{item.remarks}</td>
                 
 
                 </tr>

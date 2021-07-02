@@ -13,7 +13,7 @@ function AdminSubcategories() {
         <div className="container">
             <div className = "row">
                 <div className = "col-4 wd-5 ">
-                    <a href = "/attendee" >
+                    <a href = "/attendeeView" >
                         <div className="card-sub" >
                             <img src={attendeesImg} className="card-img-top" alt="admin"/>
                             <div className="card-body">
