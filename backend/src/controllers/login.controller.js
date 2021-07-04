@@ -33,7 +33,7 @@ const login = async (req, res) => {
     });
   } else {
     const userP = await Presenter.findOne({ username });
-    if (userP && bcrypt.compareSync(password, user.password)) {
+    if (userP && bcrypt.compareSync(password, userP.password)) {
       const token = jwt.sign({ id: userP._id }, JWT_SECRET);
       const data = userP._id;
       const Utype = "presenter";

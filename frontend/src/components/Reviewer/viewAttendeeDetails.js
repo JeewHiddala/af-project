@@ -38,7 +38,7 @@ class AllAttendeeDetails extends Component {
   render(){
     return (
 
-        <div className="container"><br/>
+        <div className="container">
             <div className={"card p-4"}>
             
                 <h5 htmlFor="content"  className="form-label mb-4" style={{textAlign:"left"}}>
@@ -172,7 +172,6 @@ class AllAttendeeDetails extends Component {
                             </div>
                          </div>
                        </div>
-                     <br> </br>
                   <br></br>
               <br></br>
           </form>

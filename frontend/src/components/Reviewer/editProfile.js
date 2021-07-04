@@ -40,7 +40,7 @@ onChange(e) {
 
 componentDidMount(){
   
-      axios.get(`http://localhost:7000/reviewer/${this.props.match.params.id}`)
+      axios.get(`http://localhost:7000/reviewer/${this.props.location}`)
       .then(response => {
       this.setState({reviewers: response.data.data});
     })
@@ -57,7 +57,7 @@ componentDidMount(){
     });
   }
 
-  onSubmit(e) {      
+  onSubmit(e,userId) {      
   e.preventDefault(); 
         let reviewer = {    
                name: this.state.name,
@@ -71,7 +71,7 @@ componentDidMount(){
     
 }
             console.log('DATA TO SEND', reviewer);    
-            axios.put(`http://localhost:7000/reviewer/update/${this.props.match.params.id}`, reviewer)
+            axios.patch(`http://localhost:7000/reviewer/update/${userId}`, reviewer)
             .then(response => {
         
             Swal.fire({
@@ -89,12 +89,14 @@ componentDidMount(){
               }
 
       render(){
+        const { data } = this.props.location
+        console.log("userid: " + data);
           return (
     
                 <div className="container">
                     <CheckoutSteps step3></CheckoutSteps>
                     <h1>Reviewer Profile</h1>
-                <form onSubmit={this.onSubmit}>
+                <form onSubmit={e => this.onSubmit(e,data)}>
                   <div className="row gutters">
                     <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
                     <div className="card h-100">

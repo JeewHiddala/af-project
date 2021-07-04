@@ -10,8 +10,10 @@ class PresenterDashboard extends Component {
     }
 
     loadUpdateProfile(e, userId) {
-        window.location = `/presenter/${userId}`
-    }
+        this.props.history.push({
+            pathname: `/presenter/${userId}`,
+            data: `${userId}`
+          })    }
     render() {
         const { data } = this.props.location
         console.log("userid: " + data);

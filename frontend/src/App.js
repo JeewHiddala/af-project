@@ -74,7 +74,7 @@ function App() {
             <Route path="/edit/:id" component={EditWorkshopProposals} />
             <Route path="/view/:id" component={editResearchPaperUpload} />
             <Route path="/attendee-view/:id" component={AllAttendeeDetails} />
-            <Route path="/profile" component={editRevieweProfile} />
+            <Route path="/profile/:id" component={editRevieweProfile} />
             <Route path="/configure/:id" component={ReviewedResearchPaperUpload} />
             <Route path="/confirm/:id" component={ConfirmApproveWorkshopProposals} />
             <Route path="/" component={Home} exact />

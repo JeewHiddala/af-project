@@ -43,7 +43,7 @@ class UserLogin extends Component {
           })
         }else if (!response.data.Utype.localeCompare("reviewer")) {
           this.props.history.push({
-            pathname: '/workshop',
+            pathname: '/profile/:id',
             data: response.data.data
           })
         }else if (!response.data.Utype.localeCompare("editor")) {

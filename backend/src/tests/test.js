@@ -10,11 +10,13 @@ const Reviewer = require('../models/reviewerModel');
 
 //import APIs
 const adminAPI = require('../apis/admin.api');
-const attendeeAPI = require('./src/apis/attendee.api');
-const presenterAPI = require('./src/apis/presenter.api');
-const loginAPI = require('./src/apis/login.api');
+const attendeeAPI = require('../apis/attendee.api');
+const presenterAPI = require('../apis/presenter.api');
+const loginAPI = require('../apis/login.api');
 
 const reviewerAPI = require('../apis/reviewer.api');
+const approvedWorkshopProposalAPI = require('./src/api/reviewedWorkshopProposal.api');
+const workshopProposalAPI = require('./src/api/workshopProposal.api');
 
 dotenv.config();
 const app = express();
@@ -95,43 +97,18 @@ test('should insert a new administrator', async () => {
 })
 
 //IT19051826 Test Case1
-
-jest.setTimeout(50000);
-
-let id = '';
-
-beforeAll(async () => {
-    await WorkshopProposal.deleteMany(); //delete already exist categories
-});
-
+app.use('/workshopProposal', workshopProposalAPI());
 test('should delete a workshop proposal', async () => {
-    await request(app).delete('/workshopProposal/:id').send({
-        content: "Accessibility, Availability in Facabook",
-        title: "Facebook",
-        venue: "Provincial Council Auditorium Kandy",
-        date:  "2020-10-05",
-        organizers: "Dilan Senanayake",
-        duration: "2 hour",
-        type: "regular",
-        status: "Pending",
-        document: "/file_uploads/cloud_Computing.doc"
+    await request(app).delete('/workshopProposal/60d81ff5825f181d4c81451d').send({
     }).expect(200).then((res) => {
         id = res.body._id;
     });
 })
 
 //IT19051826 Test Case2
-
-jest.setTimeout(50000);
-
-let id = '';
-
-beforeAll(async () => {
-    await WorkshopProposal.deleteMany(); //delete already exist categories
-});
-
+app.use('/approvedWorkshopProposal', approvedWorkshopProposalAPI());
 test('should save approved workshop proposal', async () => {
-    await request(app).post('/workshopProposal/create').send({
+    await request(app).post('approvedWorkshopProposal/create').send({
         content: "Interoperability, Availability in Instagram",
         title: "Instagram",
         venue: "Provincial Council Auditorium Colombo",
@@ -145,19 +122,10 @@ test('should save approved workshop proposal', async () => {
         id = res.body._id;
     });
 })
-
-
 //IT19051826 TestCase 3
-jest.setTimeout(50000);
-
-let id = '';
-
-beforeAll(async () => {
-    await Reviewer.deleteMany(); //delete already exist categories
-});
-
+app.use('/reviewer', reviewerAPI());
 test('should edit reviewer user profile', async () => {
-    await request(app).put('/reviewer/:id').send({
+    await request(app).put('/reviewer/60dc9eaa4bf5640020d14d6b').send({
      name: "Madura Ganearachchi2",
      email: "madura@gmail.com2",
      nicNo: "546856854V222333",
@@ -170,17 +138,8 @@ test('should edit reviewer user profile', async () => {
         id = res.body._id;
     });
 })
-
-
 //IT19051826 Test Case 4
-jest.setTimeout(50000);
-
-let id = '';
-
-beforeAll(async () => {
-    await Reviewer.deleteMany(); //delete already exist categories
-});
-
+app.use('/reviewer', reviewerAPI());
 test('should get all reviewer profile details', async () => {
     await request(app).get('/reviewer').send({
      name: "Madura Ganearachchi2",
@@ -194,6 +153,36 @@ test('should get all reviewer profile details', async () => {
     }).expect(200).then((res) => {
         id = res.body._id;
     });
+})
+
+//test case 1 -De Seram E.M.A.P. - IT19021058
+ 
+const editorApi = require('../apis/editor.api');
+app.use('/editor',editorApi());
+ 
+test('add new editor to the system', async () => {
+    await request(app).post('/editor/create').send({
+     name: "Namal Karunarathne",
+     email: "namal@gmail.com",
+     nicNo: "787415454V",
+     address: "colombo 7",
+     mobileNumber: 77588995,
+     userName: "namal",
+     password: "444444",
+     editorSalary: 165000       
+    }).expect(200).then((res) => {
+        id = res.body._id;
+    });
+})
+ 
+//test case 2 - De Seram E.M.A.P. - IT19021058
+test('Login validation', async () => {
+  await request(app).post('/login').send({
+      username: "namal",
+      password: "444444"
+  }).expect(200).then((res) => {
+      id = res.body._id;
+  });
 })
 
 //test case 1 IT19059150

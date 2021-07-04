@@ -54,7 +54,7 @@ class CreatePresenter extends Component {
 
     axios.post('http://localhost:7000/presenter/create', presenter)
       .then((data) => {
-        this.props.history.push('/dashboard')
+        this.props.history.push('/login')
         alert('Data successfully inserted')
       })
       .catch((error) => {
