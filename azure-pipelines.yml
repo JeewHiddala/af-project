@@ -12,6 +12,7 @@ pool:
 steps:
 - task: NodeTool@0
   inputs:
+    workingDir: '$(Build.SourcesDirectory)/backend'
     versionSpec: '12.x'
   displayName: 'Install Node.js'
 
